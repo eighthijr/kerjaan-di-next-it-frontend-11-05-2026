@@ -525,20 +525,21 @@ export const Dashboard: React.FC = () => {
                     {/* Mobile Header */}
                     <header className="sticky top-0 z-20 h-20 bg-white/90 backdrop-blur-md border-b border-slate-100 flex items-center justify-between px-6 lg:hidden">
                         <div className="flex items-center gap-4">
-                            <Button variant="ghost" size="icon" className="text-ueu-navy" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                                <Menu className="h-6 w-6" />
+                            <Button variant="ghost" size="icon" className="text-ueu-navy hover:text-ueu-blue" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Buka menu dashboard">
+                                <Menu className="h-6 w-6" aria-hidden="true" />
                             </Button>
-                            <div className="flex flex-col">
-                                <span className="font-black text-sm text-ueu-navy tracking-tight leading-none uppercase">Esa Unggul</span>
-                                <span className="text-[8px] text-ueu-blue font-black tracking-widest mt-1">LMS PLATFORM</span>
-                            </div>
+                            <img
+                                src="/ueu-asu-logo.svg"
+                                alt="Universitas Esa Unggul powered by Arizona State University"
+                                className="h-10 w-auto max-w-[180px]"
+                            />
                         </div>
 
                         <div className="flex gap-4">
                         <Notifications />
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
-                                <Button variant="ghost" className="h-10 w-10 rounded-2xl bg-ueu-navy text-white flex items-center justify-center font-black text-xs overflow-hidden shadow-lg shadow-blue-900/10 p-0">
+                                <Button variant="ghost" className="h-10 w-10 rounded-2xl bg-ueu-navy text-white hover:text-white hover:bg-ueu-navy flex items-center justify-center font-black text-xs overflow-hidden shadow-lg shadow-blue-900/10 p-0" aria-label="Buka menu akun">
                                     {user.avatarUrl ? (
                                         <img src={user.avatarUrl} alt={user.name} className="h-full w-full object-cover" />
                                     ) : (
@@ -573,10 +574,11 @@ export const Dashboard: React.FC = () => {
                         <div className="flex items-center gap-4 flex-1">
                             <Button
                                 variant="outline"
-                                className="relative h-12 w-full max-w-md justify-start rounded-2xl bg-slate-100/50 border-none text-slate-400 font-bold shadow-none hover:bg-ueu-blue/5 transition-all text-xs tracking-widest uppercase"
+                                className="relative h-12 w-full max-w-md justify-start rounded-2xl bg-slate-100/50 border-none text-slate-600 font-bold shadow-none hover:bg-ueu-blue/5 hover:text-ueu-navy focus-visible:ring-2 focus-visible:ring-ueu-blue/40 transition-all text-xs tracking-widest uppercase"
                                 onClick={() => setOpen(true)}
+                                aria-label="Buka pencarian cepat dashboard"
                             >
-                                <Search className="mr-3 h-4 w-4 text-ueu-blue" />
+                                <Search className="mr-3 h-4 w-4 text-ueu-blue" aria-hidden="true" />
                                 <span>Pencarian Cepat...</span>
                                 <kbd className="pointer-events-none absolute right-3 top-3 hidden h-6 select-none items-center gap-1 rounded bg-white px-2 font-mono text-[9px] font-black opacity-100 sm:flex border border-slate-100 shadow-sm">
                                     <span className="text-[10px]">⌘</span>K
@@ -589,8 +591,8 @@ export const Dashboard: React.FC = () => {
                             {/* Currency */}
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
-                                    <Button variant="ghost" size="sm" className="gap-2 text-ueu-navy hover:text-ueu-blue font-black uppercase text-[10px] tracking-widest px-4 py-2 hover:bg-ueu-blue/5 rounded-full transition-all">
-                                        <Globe className="h-4 w-4" />
+                                    <Button variant="ghost" size="sm" className="gap-2 text-ueu-navy hover:text-ueu-blue font-black uppercase text-[10px] tracking-widest px-4 py-2 hover:bg-ueu-blue/5 rounded-full transition-all" aria-label={`Pilih mata uang, saat ini ${currency.code}`}>
+                                        <Globe className="h-4 w-4" aria-hidden="true" />
                                         <span>{currency.code}</span>
                                     </Button>
                                 </DropdownMenuTrigger>
@@ -605,8 +607,8 @@ export const Dashboard: React.FC = () => {
 
                             {/* Cart */}
                             <Link to="/checkout">
-                                <Button variant="ghost" size="icon" className="relative hover:bg-emerald-50 text-slate-400 hover:text-emerald-500 rounded-2xl w-11 h-11 transition-all">
-                                    <ShoppingCart className="h-5 w-5" />
+                                <Button variant="ghost" size="icon" className="relative hover:bg-emerald-50 text-slate-500 hover:text-emerald-600 rounded-2xl w-11 h-11 transition-all" aria-label={`Keranjang belanja, ${cart.length} item`}>
+                                    <ShoppingCart className="h-5 w-5" aria-hidden="true" />
                                     {cart.length > 0 && (
                                         <span className="absolute top-2 right-2 h-2.5 w-2.5 rounded-full bg-accent ring-4 ring-white animate-in zoom-in" />
                                     )}
@@ -619,7 +621,7 @@ export const Dashboard: React.FC = () => {
                             <div className="pl-6 border-l border-slate-100 ml-2">
                                 <DropdownMenu>
                                     <DropdownMenuTrigger asChild>
-                                        <Button variant="ghost" className="relative h-11 w-11 rounded-2xl overflow-hidden shadow-lg shadow-blue-900/5 hover:scale-105 active:scale-95 p-0 transition-all">
+                                        <Button variant="ghost" className="relative h-11 w-11 rounded-2xl overflow-hidden shadow-lg shadow-blue-900/5 hover:scale-105 active:scale-95 p-0 transition-all" aria-label="Buka menu akun">
                                             {user.avatarUrl ? (
                                                 <img src={user.avatarUrl} alt={user.name} className="h-full w-full object-cover" />
                                             ) : (
@@ -656,10 +658,11 @@ export const Dashboard: React.FC = () => {
                     {mobileMenuOpen && (
                         <div className="fixed inset-0 z-50 bg-[#FEFBFF]/95 backdrop-blur-xl lg:hidden flex flex-col animate-in fade-in zoom-in-95 duration-300">
                             <div className="flex items-center justify-between p-8 border-b border-slate-100 bg-white">
-                                <div className="flex flex-col">
-                                    <span className="font-black text-lg text-ueu-navy tracking-tight leading-none uppercase">Esa Unggul</span>
-                                    <span className="text-[8px] text-ueu-blue font-black tracking-widest mt-1 uppercase">Menu Utama</span>
-                                </div>
+                                <img
+                                    src="/ueu-asu-logo.svg"
+                                    alt="Universitas Esa Unggul powered by Arizona State University"
+                                    className="h-12 w-auto max-w-[210px]"
+                                />
                                 <Button
                                     variant="ghost"
                                     size="sm"
@@ -729,13 +732,13 @@ export const Dashboard: React.FC = () => {
 
                 {/* Command Palette */}
                 <CommandDialog open={open} onOpenChange={setOpen}>
-                    <CommandInput placeholder="Type a command or search..." />
+                    <CommandInput placeholder="Ketik perintah atau pencarian..." aria-label="Cari perintah dashboard" />
                     <CommandList>
-                        <CommandEmpty>No results found.</CommandEmpty>
-                        <CommandGroup heading="Quick Actions">
-                            <CommandItem onSelect={() => runCommand(() => setActiveTab('overview'))}>Go to Dashboard</CommandItem>
+                        <CommandEmpty>Hasil tidak ditemukan.</CommandEmpty>
+                        <CommandGroup heading="Aksi Cepat">
+                            <CommandItem onSelect={() => runCommand(() => setActiveTab('overview'))}>Buka Dashboard</CommandItem>
                             {(user.role === 'instructor' || user.role === 'admin') && (
-                                <CommandItem onSelect={() => runCommand(() => setActiveTab('create_course'))}>Create New Course</CommandItem>
+                                <CommandItem onSelect={() => runCommand(() => setActiveTab('create_course'))}>Buat Kursus Baru</CommandItem>
                             )}
                         </CommandGroup>
                     </CommandList>

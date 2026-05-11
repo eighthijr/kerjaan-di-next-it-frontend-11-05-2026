@@ -142,18 +142,14 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
             "hidden bg-white border-r border-slate-100 lg:flex flex-col fixed inset-y-0 z-30 transition-all duration-300 ease-in-out shadow-[4px_0_24px_rgba(0,0,0,0.02)]",
             isCollapsed ? "w-24" : "w-72"
         )}>
-            {/* Logo Area - Menggunakan Biru Navy UEU */}
-            <div className={cn("h-24 flex items-center border-b border-slate-50", isCollapsed ? "justify-center px-0" : "px-8")}>
-                <Link to="/" className="flex items-center gap-4 group">
-                    <div className="bg-ueu-navy text-white p-2.5 rounded-2xl shrink-0 shadow-xl shadow-blue-900/10 transition-all duration-500 group-hover:bg-ueu-blue group-hover:rotate-6 group-hover:scale-110">
-                        <GraduationCap className="h-5 w-5" />
-                    </div>
-                    {!isCollapsed && (
-                        <div className="flex flex-col animate-in fade-in duration-700 overflow-hidden">
-                            <span className="font-black text-sm text-ueu-navy tracking-tight leading-none uppercase">Esa Unggul</span>
-                            <span className="text-[10px] text-ueu-blue font-black tracking-widest mt-1.5 opacity-60">LMS PLATFORM</span>
-                        </div>
-                    )}
+            {/* Logo Area */}
+            <div className={cn("h-24 flex items-center border-b border-slate-50", isCollapsed ? "justify-center px-0" : "px-6")}>
+                <Link to="/" className="flex items-center transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ueu-blue/40 focus-visible:ring-offset-2 rounded-2xl">
+                    <img
+                        src={isCollapsed ? "/ueu-asu-mark.svg" : "/ueu-asu-logo.svg"}
+                        alt="Universitas Esa Unggul powered by Arizona State University"
+                        className={cn("w-auto", isCollapsed ? "h-11" : "h-14 max-w-[220px]")}
+                    />
                 </Link>
             </div>
 

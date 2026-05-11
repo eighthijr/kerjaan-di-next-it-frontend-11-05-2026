@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, Globe, Twitter, Linkedin, Facebook, Instagram, Youtube, ShieldCheck, GraduationCap } from 'lucide-react';
+import { BookOpen, Globe, Twitter, Linkedin, Facebook, Instagram, Youtube, ShieldCheck } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -10,18 +10,12 @@ export const Footer: React.FC = () => {
 
           {/* Brand & Global Partnership Column */}
           <div className="space-y-8 pr-4">
-            <Link to="/" className="flex items-center gap-4 transition-opacity hover:opacity-80">
-              <div className="bg-ueu-navy text-white p-2.5 rounded-2xl shadow-lg shadow-blue-900/10">
-                <GraduationCap className="h-6 w-6" />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-black text-base tracking-tight text-ueu-navy leading-none uppercase">
-                  Esa <span className="text-ueu-blue">Unggul</span>
-                </span>
-                <div className="flex items-center gap-2 mt-1.5 opacity-60">
-                  <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Global Platform</span>
-                </div>
-              </div>
+            <Link to="/" className="inline-flex transition-opacity hover:opacity-80">
+              <img
+                src="/ueu-asu-logo.svg"
+                alt="Universitas Esa Unggul powered by Arizona State University"
+                className="h-16 w-auto max-w-full"
+              />
             </Link>
 
             <p className="text-slate-500 text-sm leading-relaxed max-w-xs font-medium">
@@ -31,7 +25,7 @@ export const Footer: React.FC = () => {
             {/* Partnership Logos Area */}
             <div className="space-y-4 pt-2">
               <div className="flex items-center gap-4">
-                <img src="asu-logo.png" alt="" />
+                <img src="asu-logo.png" alt="Arizona State University, nomor 1 di Amerika Serikat untuk inovasi" />
                 {/* <div className="font-black text-ueu-navy/40 text-lg tracking-widest uppercase text-center border-2 border-slate-100 rounded-2xl p-4 w-full">
                     Arizona State University
                 </div> */}
